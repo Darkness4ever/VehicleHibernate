@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="Vehicle" table="vehicle">
+      <meta attribute="class-description">
+         This class contains the employee detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="regNo" column="regNo" type="string"/>
+      <property name="makeModel" column="makeModel" type="string"/>
+      <many-to-one name="insurance" column="insurance" unique="true"
+                   class="Insurance" not-null="true"/>
+   </class>
+
+   <class name="Insurance" table="insurance">
+      <meta attribute="class-description">
+         This class contains the address detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="amount" column="amount" type="double" />
+      <property name="company" column="company" type="string"/>
+      <property name="date" column="date" type="date"/>
+   </class>
+
+</hibernate-mapping>
